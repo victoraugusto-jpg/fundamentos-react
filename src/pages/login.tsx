@@ -1,6 +1,7 @@
 import {
   Button,
   Link as ChakraLink,
+  Field,
   Flex,
   Heading,
   HStack,
@@ -14,6 +15,7 @@ import NextLink from "next/link";
 
 import loginImage from "../../public/assets/login-image.gif";
 import { Checkbox } from "../components/ui/checkbox";
+import { PasswordInput } from "../components/ui/password-input";
 
 export default function Login() {
   return (
@@ -30,9 +32,28 @@ export default function Login() {
             Se você já é membro, você pode fazer login com seu endereço de
             e-mail e senha.
           </Text>
-          <VStack align="flex-start" gap={6}>
-            <Input />
-            <Input />
+          <VStack align="flex-start" gap={6} mt={10}>
+            <Field.Root required>
+              <Field.Label color="black">Email</Field.Label>
+              <Input
+                type="email"
+                h={16}
+                colorPalette="blue"
+                borderRadius="md"
+                color="black"
+              />
+            </Field.Root>
+
+            <Field.Root required>
+              <Field.Label color="black">Senha</Field.Label>
+              <PasswordInput
+                h={16}
+                colorPalette="blue"
+                borderRadius="md"
+                color="black"
+              />
+            </Field.Root>
+
             <Checkbox
               colorPalette="blue"
               color="gray.500"
@@ -41,6 +62,7 @@ export default function Login() {
             >
               Lembre-me
             </Checkbox>
+
             <Button
               w="full"
               h={16}
